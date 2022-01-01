@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="各类IT知识分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://example.com/tags/index.html">
+  <meta name="description" content="前言近日学习汇编，发现当想要以十进制形式输出一个寄存器中所存放的数值时，是比较麻烦的，没有一个特别好的方法。因此，我尝试通过子程序的方法，编写一个十进制输出小程序来解决这个问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编十进制输出小程序">
+<meta property="og:url" content="http://example.com/2022/01/01/%E6%B1%87%E7%BC%96%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="杨大熊的代码世界">
-<meta property="og:description" content="各类IT知识分享">
+<meta property="og:description" content="前言近日学习汇编，发现当想要以十进制形式输出一个寄存器中所存放的数值时，是比较麻烦的，没有一个特别好的方法。因此，我尝试通过子程序的方法，编写一个十进制输出小程序来解决这个问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-11T06:26:23.000Z">
-<meta property="article:modified_time" content="2022-01-01T10:09:45.106Z">
+<meta property="article:published_time" content="2022-01-01T10:30:10.787Z">
+<meta property="article:modified_time" content="2022-01-01T10:32:02.941Z">
 <meta property="article:author" content="杨大熊">
+<meta property="article:tag" content="汇编语言">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2022/01/01/%E6%B1%87%E7%BC%96%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
 
 
 <script id="page-configurations">
@@ -40,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>tags | 杨大熊的代码世界
-</title>
+  <title>汇编十进制输出小程序 | 杨大熊的代码世界</title>
   
 
 
@@ -158,51 +158,123 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/01/%E6%B1%87%E7%BC%96%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="杨大熊">
+      <meta itemprop="description" content="各类IT知识分享">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨大熊的代码世界">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          汇编十进制输出小程序
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-01 18:30:10 / 修改时间：18:32:02" itemprop="dateCreated datePublished" datetime="2022-01-01T18:30:10+08:00">2022-01-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">汇编语言编程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><font color=#999AAA >近日学习汇编，发现当想要以十进制形式输出一个寄存器中所存放的数值时，是比较麻烦的，没有一个特别好的方法。因此，我尝试通过子程序的方法，编写一个十进制输出小程序来解决这个问题</font></p>
+<span id="more"></span>
+
+<h1 id="一、算法概述"><a href="#一、算法概述" class="headerlink" title="一、算法概述"></a>一、算法概述</h1><p><font color=#999AAA >要输出一个十进制数，最有可能想到的就是通过不断用数据除10，然后获取余数来输出这个数据。基于此思想，我尝试通过汇编中div的特性，即当div除以十六位数据时，DX存放余数，AX存放商的性质来获取余数，然后不断往复，直到AX中商为0，同时DX中余数也为0时停止获取，然后一并输出。<br>显然，这里存在一个问题，即数据是以从个位到最高位的顺序产生的，想要解决这个输出问题，可以借助堆栈的思想，利用堆栈先进后出的特性，来先输出最高位，然后次之。同时，对于何时停止输出堆栈数据，可以在算法开始前，先push一个标志，0~9之外的标志都可以，当检测到标志时，停止输出。<br>入口参数：ax，存放想要输出的数据</p>
+<h1 id="二、完整代码"><a href="#二、完整代码" class="headerlink" title="二、完整代码"></a>二、完整代码</h1><p><font color=#999AAA >代码如下（示例）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">.model small</span><br><span class="line">.<span class="built_in">stack</span></span><br><span class="line">.data</span><br><span class="line">.code</span><br><span class="line">.startup</span><br><span class="line">mov ax,<span class="number">9321</span></span><br><span class="line">call todec</span><br><span class="line">.<span class="built_in">exit</span></span><br><span class="line">todec proc</span><br><span class="line">	push bx</span><br><span class="line">	push si</span><br><span class="line">	push dx</span><br><span class="line">	mov bx,<span class="number">0</span>DH ;一个判断是否还要继续输出的标志，除了<span class="number">0</span>~<span class="number">9</span>都可以</span><br><span class="line">	push bx</span><br><span class="line">again:</span><br><span class="line">	<span class="keyword">xor</span> dx,dx</span><br><span class="line">	mov si,<span class="number">10</span></span><br><span class="line">	div si ;余数放dx，商放ax</span><br><span class="line">	cmp dx,<span class="number">0</span></span><br><span class="line">	jne next ;余数不等于<span class="number">0</span>，直接转到余数入栈操作</span><br><span class="line">	cmp ax,<span class="number">0</span>  ;余数等于<span class="number">0</span>，看看商等不等于<span class="number">0</span></span><br><span class="line">	je print ;商也等于<span class="number">0</span>,开始打印输出</span><br><span class="line">next:</span><br><span class="line">	<span class="keyword">or</span> dl,<span class="number">30</span>h</span><br><span class="line">	push dx ;变成<span class="number">0</span>~<span class="number">9</span>对应的ASCII入栈</span><br><span class="line">	jmp again</span><br><span class="line">print:</span><br><span class="line">	pop dx</span><br><span class="line">	cmp dx,<span class="number">0</span>Dh ;如果是放入的标志，停止输出</span><br><span class="line">	je over</span><br><span class="line">	mov ah,<span class="number">2</span> ;不是的话就输出</span><br><span class="line">	<span class="keyword">int</span> <span class="number">21</span>h</span><br><span class="line">	jmp print</span><br><span class="line">over: </span><br><span class="line">	pop dx</span><br><span class="line">	pop si</span><br><span class="line">	pop bx</span><br><span class="line">	ret</span><br><span class="line">todec endp</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>杨大熊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/01/01/%E6%B1%87%E7%BC%96%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BE%93%E5%87%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="汇编十进制输出小程序">http://example.com/2022/01/01/汇编十进制输出小程序/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Python/" style="font-size: 12px; color: #ccc">Python</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 30px; color: #111">汇编语言</a>
-            </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag"># 汇编语言</a>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
 
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/01/%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E4%B9%8B%E7%BB%9F%E8%AE%A1%E5%A4%A7%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D/" rel="prev" title="汇编小程序--统计大小写字母">
+      <i class="fa fa-chevron-left"></i> 汇编小程序--统计大小写字母
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -253,6 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">一、算法概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">二、完整代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
